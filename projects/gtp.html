@@ -21,7 +21,7 @@
     <div id="page-wrapper">
 
         <!-- Header -->
-        <header id="header">
+        <header id="header" class="alt">
             <h1><a href="../index.html">&larr;&nbsp;Home</a></h1>
             <nav>
                 <a href="#menu">Menu</a>
@@ -34,7 +34,7 @@
                 <h2>Menu</h2>
                 <ul class="links">
                     <li><a href="../index.html">Home</a></li>
-                    <!-- <li><a href="myblog.html">My Blog</a></li> -->
+                    <!-- <li><a href="../myblog.html">My Blog</a></li> -->
                     <li><a href="../skills.html">Skills</a></li>
                     <li><a href="../projects.html">Projects</a></li>
                     <li><a href="../about.html">About</a></li>
@@ -113,7 +113,7 @@
                         </div>
                     </div>
                     <ul class="actions">
-                        <li><input type="submit" value="Send Message" /></li>
+                        <li><input id="sendmessageBtn" type="submit" value="Send Message" /></li>
                     </ul>
                 </form>
                 <ul class="contact">
@@ -135,32 +135,13 @@
     </div>
 
     <!-- Scripts -->
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwe5_ZO6WBPIX_QOHTpVPh4OE2RoVucfYapPbpFqr-_BDmwJ4_KYM_zlMH2hX5-I-c7-g/exec'
-        const form = document.forms['portfolio-contact-form']
-        form.addEventListener('submit', e => {
-            const submitButton = document.getElementById("sendmessageBtn");
-            submitButton.disabled = "true";
-            submitButton.value = "Sending...";
-
-            e.preventDefault()
-            fetch(scriptURL, {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-                .then(response => {
-                    alert("Message sent successfully...");
-                    location.reload();
-                })
-                .catch(error => console.error('Error!', error.message))
-        })
-    </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
 
 </body>
 
