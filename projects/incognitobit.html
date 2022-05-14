@@ -96,19 +96,19 @@
             <div class="inner">
                 <h2 class="major">Get in touch</h2>
                 <p>For any queries feel free to contact me. You can connect with me on my social media accounts. Also, you can drop a mail on my E-Mail or you can connect me through the form given below.</p>
-                <form method="post" action="#">
+                <form autocomplete="off" method="post" name="portfolio-contact-form">
                     <div class="fields">
                         <div class="field">
                             <label for="name">Name</label>
-                            <input type="text" name="name" id="name" />
+                            <input type="text" name="Name" id="name" required/>
                         </div>
                         <div class="field">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email" />
+                            <input type="email" name="Email" id="email" required/>
                         </div>
                         <div class="field">
                             <label for="message">Message</label>
-                            <textarea name="message" id="message" rows="4"></textarea>
+                            <textarea name="Message" id="message" rows="4" required></textarea>
                         </div>
                     </div>
                     <ul class="actions">
@@ -134,13 +134,32 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/jquery.scrollex.min.js"></script>
-    <script src="../assets/js/browser.min.js"></script>
-    <script src="../assets/js/breakpoints.min.js"></script>
-    <script src="../assets/js/util.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwe5_ZO6WBPIX_QOHTpVPh4OE2RoVucfYapPbpFqr-_BDmwJ4_KYM_zlMH2hX5-I-c7-g/exec'
+        const form = document.forms['portfolio-contact-form']
+        form.addEventListener('submit', e => {
+            const submitButton = document.getElementById("sendmessageBtn");
+            submitButton.disabled = "true";
+            submitButton.value = "Sending...";
+
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => {
+                    alert("Message sent successfully...");
+                    location.reload();
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 
