@@ -2,6 +2,9 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwe5_ZO6WBPIX_QOHTpVP
 const form = document.forms['portfolio-contact-form'];
 
 form.addEventListener('submit', e => {
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById("timestamp").value = now.toISOString().slice(0, 16);
     const submitButton = document.getElementById("sendmessageBtn");
     submitButton.disabled = "true";
     submitButton.value = "Sending...";
